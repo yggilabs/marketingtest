@@ -1,3 +1,9 @@
 collections:
   tweets:
-    output: true
+    output: true    
+defaults:
+  - scope:
+      path: ""
+      type: "tweets"
+    values:
+      layout: "default"
