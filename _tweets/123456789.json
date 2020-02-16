@@ -12,6 +12,7 @@ node:
 {%- assign hour_key = hour[0] -%}
 {%- assign hour_value = hour[1] -%}
 {%- capture time -%}{{ date_key }}T{{ hour_key }}:00Z{%- endcapture -%}
+{%- assign node = page.node -%}
 {%- assign node.time = time -%}
 {%- assign node.value = hour_value -%}
 {%- assign array = array | push: node -%}
