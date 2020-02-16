@@ -4,7 +4,7 @@
 {%- for i in impressions | sort -%}
 {%- for date in i | sort -%}
 {%- for hour in date | sort -%}
-{{ hour }}
+{{ hour | append: "," }}
 {%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
