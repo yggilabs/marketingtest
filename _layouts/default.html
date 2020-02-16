@@ -1,1 +1,17 @@
-{{ post.title }}
+---
+---
+{%- assign impressions = site.data.impressions[page.title] -%}
+[
+{%- for date in impressions -%}
+{%- assign date_key = date[0] -%}
+{%- assign date_value = date[1] -%}
+{%- for hour in date_value -%}
+{%- assign hour_key = hour[0] -%}
+{%- assign hour_value = hour[1] -%}
+{%- capture time -%}{{ date_key }}T{{ hour_key }}:00Z{%- endcapture -%}
+{%- assign node = page.node -%}
+{"time":"{{ time }}","value":"{{hour_value}}"}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]
