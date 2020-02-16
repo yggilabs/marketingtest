@@ -1,6 +1,5 @@
 ---
 ---
-{%- assign array = '' | split: '' -%}
 {%- assign impressions = site.data.impressions[page.title] -%}
 [
 {%- for date in impressions -%}
@@ -13,6 +12,6 @@
 {%- assign node = page.node -%}
 {"time":"{{ time }}","value":"{{hour_value}}"}{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
+{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ]
-{{ array | jsonify }}
