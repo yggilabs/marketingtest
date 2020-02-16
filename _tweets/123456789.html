@@ -4,8 +4,8 @@
 {%- capture array -%}
 {%- for date in impressions | sort -%}
 {%- for hour in date[forloop.index] | sort -%}
-{{ hour[forloop.index] | append: "," }}
+{{ hour[forloop.index] }}
 {%- endfor -%}
 {%- endfor -%}
 {%- endcapture -%}
-{{ array | join }}
+{{ array }}
