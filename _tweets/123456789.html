@@ -1,8 +1,6 @@
 ---
 ---
 {%- assign impressions = site.data.impressions[page.title] -%}
-{%- for date in impressions | sort -%}
-{%- assign date = date[forloop.index0] -%}
-{{ date }}
-
+{%- for date in impressions -%}
+{{ date[forloop.index] }}
 {%- endfor -%}
