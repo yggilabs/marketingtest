@@ -1,6 +1,10 @@
 ---
 ---
+{%- assign array = '' | split: '' -%}
 {%- assign impressions = site.data.impressions[page.title] -%}
 {%- for date in impressions -%}
-{{ date[forloop.index0] }}
+{%- for hour in date[1] -%}
+{%- assign array = array | push: hour[1] -%}
 {%- endfor -%}
+{%- endfor -%}
+{{ array }}
