@@ -7,4 +7,4 @@
 {%- assign array = array | push: hour[1] -%}
 {%- endfor -%}
 {%- endfor -%}
-{{ array }}
+{{ array | jsonify }}
