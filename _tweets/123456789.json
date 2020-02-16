@@ -1,7 +1,4 @@
 ---
-node:
-  time: ""
-  value: ""
 ---
 {%- assign array = '' | split: '' -%}
 {%- assign impressions = site.data.impressions[page.title] -%}
