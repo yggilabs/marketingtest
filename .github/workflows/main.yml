@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: get twitter token
+        run: ./.github/scripts/token.sh
+        env:
+          ID: ${{ secrets.TWITTER_ID }}
+          SECRET: ${{ secrets.TWITTER_SECRET }}
