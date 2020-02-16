@@ -1,0 +1,3 @@
+collections:
+  tweets:
+    output: true
