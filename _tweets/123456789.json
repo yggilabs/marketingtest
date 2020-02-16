@@ -1,4 +1,7 @@
 ---
+node:
+  time: 0
+  value: ""
 ---
 {%- assign array = '' | split: '' -%}
 {%- assign impressions = site.data.impressions[page.title] -%}
@@ -8,10 +11,10 @@
 {%- for hour in date_value -%}
 {%- assign hour_key = hour[0] -%}
 {%- assign hour_value = hour[1] -%}
-{%- assign a = '' | split: '' -%}
-{%- capture a.time -%}{{ date_key }}T{{ hour_key }}:00Z{%- endcapture -%}
-{%- assign a.value = hour_value -%}
-{%- assign array = array | push: a -%}
+{%- capture time -%}{{ date_key }}T{{ hour_key }}:00Z{%- endcapture -%}
+{%- assign node.time = time -%}
+{%- assign node.value = hour_value -%}
+{%- assign array = array | push: node -%}
 {%- endfor -%}
 {%- endfor -%}
 {{ array | jsonify }}
